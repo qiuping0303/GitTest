@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>コードリスト定義一覧</title>
+		<link rel="stylesheet" type="text/css" href="../../js/common/bootstrap-3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/common/ligerUI-1.3.3/ligerUI/skins/Aqua/css/ligerui-all.css">
+		<link rel="stylesheet" type="text/css" href="../../js/common/ligerUI-1.3.3/ligerUI/skins/Gray/css/all.css">
+		<link rel="stylesheet" type="text/css" href="../../js/common/ligerUI-1.3.3/ligerUI/skins/ligerui-icons.css">
+		<link rel="stylesheet" type="text/css" href="../../css/sdp2.css" />
+		<style>
+			.btn-primary1 {
+				color: #fff;
+				background-color: #337ab7;
+				border-color: #2e6da4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--navbar-fixed-top-->
+		<nav class="navbar navbar-blue">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand hidden-sm" href="../../index.html"><span class="glyphicon glyphicon-th-large"></span>開発支援</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="../flow/flow_list.html">業務</a>
+						</li>
+						<li class="dropdown active" id="menutest1">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1">
+								画面
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="../ui/ui_list.html">画面設計</a>
+								</li>
+								<li>
+									<a href="../ui/ui_forward_list.html">画面遷移図</a>
+								</li>
+								<li>
+									<a href="../ui/ui_codelist_list.html">コードリスト</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../table/table_list.html">テーブル</a>
+						</li>
+						<li>
+							<a href="../sql/sql_list.html">SQL</a>
+						</li>
+						<li>
+							<a href="../biz/biz_list.html">業務ロジック</a>
+						</li>
+						<li>
+							<a href="../message/message_list.html">メッセージ</a>
+						</li>
+						<li class="dropdown" id="menutest2">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest2">
+								基本情報
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="../baseinfo/baseinfo_company_list.html">会社情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_user_list.html">ユーザ情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_project_list.html">プロジェクト情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_project_members_list.html">プロジェクトメンバー情報</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a class="a-class" href="javascript:void(0);">担当者</a>
+						</li>
+						<li>
+							<a class="a-class" href="../../login.html">ログオフ</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<div class="container-main main">
+			<!-- ligerUI table -->
+			<div class="l-clear"></div>
+			<!-- table header start -->
+			<div class="table-header">
+				<span class="table-title">
+					コードリスト定義一覧
+				</span>
+				<div class="table-toolbar" id="uiCodeTable">
+				</div>
+			</div>
+			<!-- table header start -->
+			<!-- table start -->
+			<div id="maingrid"></div>
+			<!-- table end -->
+			<div style="display:none;"></div>
+			<!-- ligerUI table -->
+		</div>
+		<!--	業務登録模态框开始-->
+		<div class="modal fade" id="codeCreate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-width" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#F5F5F5;color:#333">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">新規登録</h4>
+					</div>
+					<div class="modal-body">
+						<div class="inner-content modal-position">
+							<form class="form-horizontal" id="form" method="post">
+								<div class="form-group">
+									<label for="inputName" class="col-xs-2 control-label">コード論理名</label>
+									<div class="col-xs-8">
+										<input type="text" class="form-control " id="serviceName">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputDesc" class="col-xs-2 control-label">概要</label>
+									<div class="col-xs-8">
+										<textarea class="form-control modal-textarea" rows="8" id="serviceDesc"></textarea>
+									</div>
+								</div>
+								<div class="form-group btn-position">
+									<button type="button" class="btn btn-primary col-xs-2 col-xs-offset-5 button" data-dismiss="modal">保存</button>
+									<button type="button" class="btn btn-primary col-xs-2 col-xs-offset-1 button" data-dismiss="modal">キャンセル</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal -->
+		<!--	業務登録模态框结束-->
+
+		<!--	業務編集模态框开始-->
+		<div class="modal fade" id="codeEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-width" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#F5F5F5;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel" style="color:#333">コードリスト編集</h4>
+					</div>
+					<div class="modal-body">
+						<div class="inner-content modal-position">
+							<form class="form-horizontal" id="form" method="post">
+								<div class="form-group">
+									<label for="inputId" class="col-xs-2 control-label">コード物理名</label>
+									<div class="col-xs-9">
+										<label id="serviceId" style="padding-top: 7px;">XXXXXXXXXXX</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputName" class="col-xs-2 control-label">コード論理名</label>
+									<div class="col-xs-9">
+										<input type="text" class="form-control " id="serviceName">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputDesc" class="col-xs-2 control-label">概要</label>
+									<div class="col-xs-9">
+										<textarea class="form-control modal-textarea" rows="8" id="serviceDesc"></textarea>
+									</div>
+								</div>
+								<div class="form-group modal-position">
+									<button type="button" class="btn col-xs-2 col-xs-offset-6 button btn-primary" data-dismiss="modal">保存</button>
+									<button type="button" class="btn col-xs-2 col-xs-offset-1 button btn-primary" data-dismiss="modal">キャンセル</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--	業務編集模态框结束-->
+
+		<!--	業務削除模态框开始-->
+		<div class="modal fade" id="codeListDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-width" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#F5F5F5;color: white;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel" style="color:#333">コードリスト削除</h4>
+					</div>
+					<div class="modal-body">
+						<div class="inner-content modal-position">
+							<form class="form-horizontal" id="form" method="post">
+								<div class="form-group">
+									<label for="inputId" class="col-xs-2 control-label">コード物理名</label>
+									<div class="col-xs-9">
+										<label id="serviceId" style="padding-top: 7px;">XXXXXXXXXXX</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputName" class="col-xs-2 control-label">コード論理名</label>
+									<div class="col-xs-9">
+										<label id="serviceId" style="padding-top: 7px;">XXXXXXXXXXX</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputDesc" class="col-xs-2 control-label">概要</label>
+									<div class="col-xs-9">
+										<textarea class="form-control modal-textarea" rows="8" id="serviceDesc"></textarea>
+									</div>
+								</div>
+								<div class="form-group modal-position">
+									<button type="button" class="btn col-xs-2 col-xs-offset-6 button btn-primary" data-dismiss="modal">削除</button>
+									<button type="button" class="btn col-xs-2 col-xs-offset-1 button btn-primary" data-dismiss="modal">キャンセル</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--	業務削除模态框结束-->
+		<nav class="navbar navbar-fixed-bottom" role="navigation" style="text-align: center;background-color:#444">
+			<p class="text-nowrap"><b style="color: #FFF;">Copyright © SDP CORPORATION</b></p>
+		</nav>
+	</body>
+	<script type="text/javascript" src="../../js/common/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="../../js/common/bootstrap-3.3.7/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../js/common/ligerUI-1.3.3/ligerUI/js/core/base.js"></script>
+	<script type="text/javascript" src="../../js/common/ligerUI-1.3.3/ligerUI/js/plugins/ligerGrid.js"></script>
+	<script type="text/javascript" src="../../js/common/ligerUI-1.3.3/ligerUI/js/plugins/ligerToolBar.js"></script>
+	<script type="text/javascript" src="../../js/common/ligerUI-1.3.3/ligerUI/js/plugins/ligerResizable.js"></script>
+	<script type="text/javascript" src="CodeList.js"></script>
+	<script type="text/javascript">
+		$("#uiCodeTable").ligerToolBar({
+			items: [{
+				text: '新規',
+				click: function() {
+					var dialog = $("#codeCreate").modal({});
+					dialog.modal("show");
+				},
+				icon: 'add'
+			}, {
+				line: true
+			}, {
+				text: '編集',
+				click: function() {
+					var dialog = $("#codeEdit").modal({});
+					dialog.modal("show");
+				},
+				icon: 'edit'
+			}, {
+				line: true
+			}, {
+				text: '削除',
+				click: function() {
+					var dialog = $("#codeListDelete").modal({});
+					dialog.modal("show");
+				},
+				icon: 'delete'
+			}, {
+				line: true
+			}, {
+				text: '詳細定義',
+				click: function() {
+					window.location.href = "ui_codelist_edit.html";
+				},
+				icon: 'write'
+			}]
+		});
+		var grid = $("#maingrid").ligerGrid({
+			height: '100%',
+			heightDiff: -39,
+			width: '100%',
+			columns: [{
+				display: 'コード物理名',
+				name: 'codePhyName',
+				align: 'left',
+				width: 200,
+				minWidth: 60
+			}, {
+				display: 'コード論理名',
+				name: 'codeLogicName',
+				align: 'left',
+				width: 300,
+				minWidth: 120
+			}, {
+				display: '概要',
+				name: 'overview',
+				align: 'left',
+				minWidth: 140
+			}],
+			data: CodeList,
+			pageSize: 15,
+			pageSizeOptions: [15, 30],
+			rownumbers: true,
+			frozenRownumbers: false
+		});
+	</script>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>業務フロー参照</title>
+		<link rel="stylesheet" type="text/css" href="../../js/common/bootstrap-3.3.7/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/common/ligerUI-1.3.3/ligerUI/skins/Aqua/css/ligerui-all.css">
+		<link rel="stylesheet" type="text/css" href="../../css/sdp2.css" />
+	</head>
+
+	<body>
+		<nav class="navbar navbar-blue navbar-fixed-top">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand hidden-sm" href="../../index.html"><span class="glyphicon glyphicon-th-large"></span>開発支援</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="flow_list.html">業務</a>
+						</li>
+						<li class="dropdown" id="menutest1">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1">
+								画面
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="../ui/ui_list.html">画面設計</a>
+								</li>
+								<li>
+									<a href="../ui/ui_forward_list.html">画面遷移図</a>
+								</li>
+								<li>
+									<a href="../ui/ui_codelist_list.html">コードリスト</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="../table/table_list.html">テーブル</a>
+						</li>
+						<li>
+							<a href="../sql/sql_list.html">SQL</a>
+						</li>
+						<li>
+							<a href="../biz/biz_list.html">業務ロジック</a>
+						</li>
+						<li>
+							<a href="../message/message_list.html">メッセージ</a>
+						</li>
+						<li class="dropdown" id="menutest2">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest2">
+								基本情報
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="../baseinfo/baseinfo_company_list.html">会社情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_user_list.html">ユーザ情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_project_list.html">プロジェクト情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_project_members_list.html">プロジェクトメンバー情報</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a class="a-class" href="javascript:void(0);">担当者</a>
+						</li>
+						<li>
+							<a class="a-class" href="../../login.html" onclick="">ログオフ</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<div class="container-main main">
+			<div class="table-header">
+				<span class="table-title">
+					<a class="a" href="flow_list.html">業務一覧</a>／<a class="a" href="flow_history.html">業務フロー履歴</a>／業務フロー参照
+				</span>
+			</div>
+
+			<div class="form-position form-border">
+				<div class="col-xs-1 form-conment">業務ID</div>
+				<input class="col-xs-5 form-input" type="text" readonly="readonly" value="D01S01B11" />
+				<div class="col-xs-1 form-conment">業務名</div>
+				<input class="col-xs-5 form-input" type="text" readonly="readonly" value="人事業務_1030_1" />
+			</div>
+
+			<div class="ibox-content" style="height:730px;">
+			</div>
+			<div>
+				<button type="button" class="btn col-xs-1 col-xs-offset-10 button btn-primary btn-minier">閉じる</button>
+			</div>
+
+		</div>
+
+		<nav class="navbar navbar-fixed-bottom" role="navigation" style="text-align: center;background-color:#444">
+			<p class="text-nowrap"><b style="color: #FFF;">Copyright © SDP CORPORATION</b></p>
+		</nav>
+	</body>
+	<script type="text/javascript" src="../../js/common/jquery-3.2.0.min.js"></script>
+	<script src="../../js/common/bootstrap-3.3.7/js/bootstrap.js"></script>
+
+</html>

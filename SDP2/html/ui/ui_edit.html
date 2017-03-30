@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>画面設計</title>
+		<link rel="stylesheet" type="text/css" href="../../js/common/bootstrap-3.3.7/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/common/v3/layoutit.css">
+		<link href="../../js/common/ligerUI-1.3.3/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />
+		<link href="../../js/common/ligerUI-1.3.3/ligerUI/skins/Gray/css/layout.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="../../js/common/ligerUI-1.3.3/ligerUI/skins/ligerui-icons.css">
+		<!-- sdp2.css放在 ligerUI的css下方，要式样覆盖-->
+		<link rel="stylesheet" type="text/css" href="../../css/sdp2.css" />
+
+		<style>
+			.table-header {
+				margin-bottom: 1px;
+				border-bottom: 1px solid #D6D6D6;
+			}
+			.panel-content-nosrc {
+				position: absolute;
+				top: 25px;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: auto;
+				width: auto;
+				white-space: nowrap;
+			}
+			.sidebar-nav {
+				position: relative;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 999;
+			}
+			.sidebar-nav .box {
+				width: 234px !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-blue navbar-fixed-top">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand hidden-sm" href="../../index.html"><span
+					class="glyphicon glyphicon-th-large"></span>開発支援</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="../flow/flow_list.html">業務</a></li>
+						<li class="dropdown active" id="menutest1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1">
+							画面 <b class="caret"></b>
+					</a>
+							<ul class="dropdown-menu">
+								<li><a href="../ui/ui_list.html">画面設計</a></li>
+								<li><a href="../ui/ui_forward_list.html">画面遷移図</a></li>
+								<li><a href="../ui/ui_codelist_list.html">コードリスト</a></li>
+							</ul>
+						</li>
+						<li><a href="../table/table_list.html">テーブル</a></li>
+						<li><a href="sql_list.html">SQL</a></li>
+						<li><a href="../biz/biz_list.html">業務ロジック</a></li>
+						<li><a href="../message/message_list.html">メッセージ</a></li>
+						<li class="dropdown" id="menutest2">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest2">
+								基本情報
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="../baseinfo/baseinfo_company_list.html">会社情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_user_list.html">ユーザ情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_project_list.html">プロジェクト情報</a>
+								</li>
+								<li>
+									<a href="../baseinfo/baseinfo_project_members_list.html">プロジェクトメンバー情報</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a class="a-class" href="javascript:void(0);">担当者</a></li>
+						<li><a class="a-class" href="../../login.html" onclick="">ログオフ</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-main -->
+		</nav>
+		<div class="container-main">
+			<!--form-->
+			<div class="form-position form-border">
+				<div class="col-xs-1 form-conment">設計情報ID</div>
+				<input class="col-xs-5 form-input" type="text" readonly="readonly" value="D01S01B11" />
+				<div class="col-xs-1 form-conment">設計情報名</div>
+				<input class="col-xs-5 form-input" type="text" readonly="readonly" value="人事業務_1030_1" />
+			</div>
+			<!--form end -->
+			
+			<div class="table-header" style="border-top: 0;border-bottom:1px solid #DCDCDC;">
+				<span class="table-title">
+					<a class="a" href="ui_list.html">画面一覧</a>／<a class="a" href="ui_history.html">画面設計履歴</a>／画面設計
+				</span>
+			</div>
+
+			<div id="panel">
+				<div position="left">
+					<div class="l-layout-header">
+						<div class="l-layout-header-toggle"></div>
+						<div class="l-layout-header-inner"></div>
+					</div>
+					<div class="panel-content-nosrc edit">
+						<div class="sidebar-nav">
+							<ul class="nav nav-list accordion-group">
+								<li class="nav-header">
+									<!--<div class="pull-right popover-info">
+									<i class="glyphicon glyphicon-question-sign"></i>
+									<div class="popover fade right">
+										<div class="arrow"></div>
+										<h3 class="popover-title">ヘルプ</h3>
+										<div class="popover-content">在这里设置你的栅格布局, 栅格总数デフォルト为12,
+											用空格分割每列的栅格值。</div>
+									</div>
+								</div>--><i class="glyphicon-plus glyphicon"></i> レイアウト設置
+								</li>
+								<li class="rows" id="estRows">
+									<div class="lyrow">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon-remove glyphicon"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">
+											<input type="text" value="12" class="form-control">
+										</div>
+										<div class="view">
+											<div class="row clearfix">
+												<div class="col-xs-12 column"></div>
+											</div>
+										</div>
+									</div>
+									<div class="lyrow">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon-remove glyphicon"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">
+											<input type="text" value="6 6" class="form-control">
+										</div>
+										<div class="view">
+											<div class="row clearfix">
+												<div class="col-xs-6 column"></div>
+												<div class="col-xs-6 column"></div>
+											</div>
+										</div>
+									</div>
+									<div class="lyrow">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon-remove glyphicon"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">
+											<input type="text" value="8 4" class="form-control">
+										</div>
+										<div class="view">
+											<div class="row clearfix">
+												<div class="col-xs-8 column"></div>
+												<div class="col-xs-4 column"></div>
+											</div>
+										</div>
+									</div>
+									<div class="lyrow">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon-remove glyphicon"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">
+											<input type="text" value="4 4 4" class="form-control">
+										</div>
+										<div class="view">
+											<div class="row clearfix">
+												<div class="col-xs-4 column"></div>
+												<div class="col-xs-4 column"></div>
+												<div class="col-xs-4 column"></div>
+											</div>
+										</div>
+									</div>
+									<div class="lyrow">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon-remove glyphicon"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">
+											<input type="text" value="2 6 4" class="form-control">
+										</div>
+										<div class="view">
+											<div class="row clearfix">
+												<div class="col-xs-2 column"></div>
+												<div class="col-xs-6 column"></div>
+												<div class="col-xs-4 column"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="nav nav-list accordion-group">
+								<li class="nav-header"><i class="glyphicon glyphicon-plus"></i>基本CSS
+									<!--<div class="pull-right popover-info">
+									<i class="glyphicon glyphicon-question-sign "></i>
+									<div class="popover fade right">
+										<div class="arrow"></div>
+										<h3 class="popover-title">ヘルプ</h3>
+										<div class="popover-content">
+											将组件元素拖放入你需要放入的栅格列中。之后，你可以设置该元素的スタイル。</div>
+									</div>
+								</div>-->
+								</li>
+								<li class="boxes" id="elmBase">
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> 对齐 <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="text-left">左揃え</a></li>
+											<li class=""><a href="#" rel="text-center">中央揃え</a></li>
+											<li class=""><a href="#" rel="text-right">右揃え</a></li>
+										</ul>
+										</span> <span class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> マーク <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="muted">禁止</a></li>
+											<li class=""><a href="#" rel="text-warning">警告</a></li>
+											<li class=""><a href="#" rel="text-error">エラー</a></li>
+											<li class=""><a href="#" rel="text-info">ヒント</a></li>
+											<li class=""><a href="#" rel="text-success">成功</a></li>
+										</ul>
+										</span>
+										</span>
+										<div class="preview">標題欄</div>
+										<div class="view">
+											<h3 contenteditable="true">h3. 这是一套可视化布局系统.</h3>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> 对齐 <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="text-left">左揃え</a></li>
+											<li class=""><a href="#" rel="text-center">居中</a></li>
+											<li class=""><a href="#" rel="text-right">右揃え</a></li>
+										</ul>
+										</span> <span class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> マーク <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="muted">禁止</a></li>
+											<li class=""><a href="#" rel="text-warning">警告</a></li>
+											<li class=""><a href="#" rel="text-error">エラー</a></li>
+											<li class=""><a href="#" rel="text-info">ヒント</a></li>
+											<li class=""><a href="#" rel="text-success">成功</a></li>
+										</ul>
+										</span> <a class="btn btn-xs btn-default" href="#" rel="lead">Lead</a>
+										</span>
+										<div class="preview">段落</div>
+										<div class="view">
+											<p>
+												<em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus
+												Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大きい成功，尤其是在 <small>Ruby</small> 社区中。
+											</p>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">アドレス</div>
+										<div class="view">
+											<address contenteditable="true">
+											<strong>Twitter, Inc.</strong> <br> 795 Folsom Ave,
+											Suite 600 <br> San Francisco, CA 94107 <br> <abbr
+												title="Phone">P:</abbr> (123) 456-7890
+										</address>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="pull-right">Pull
+											right</a>
+									</span>
+										<div class="preview">引用块</div>
+										<div class="view clearfix">
+											<blockquote contenteditable="true">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+												<small> Someone famous <cite title="Source Title">Source
+													Title</cite>
+											</small>
+											</blockquote>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="list-unstyled">无スタイル</a>
+										<a class="btn btn-xs btn-default" href="#" rel="list-inline">埋め込み</a>
+									</span>
+										<div class="preview">無秩序リスト</div>
+										<div class="view">
+											<ul contenteditable="true">
+												<li>Lorem ipsum dolor sit amet</li>
+												<li>Consectetur adipiscing elit</li>
+												<li>Integer molestie lorem at massa</li>
+												<li>Facilisis in pretium nisl aliquet</li>
+												<li>Nulla volutpat aliquam velit</li>
+												<li>Faucibus porta lacus fringilla vel</li>
+												<li>Aenean sit amet erat nunc</li>
+												<li>Eget porttitor lorem</li>
+											</ul>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="list-unstyled">无スタイル</a>
+										<a class="btn btn-xs btn-default" href="#" rel="list-inline">埋め込み</a>
+									</span>
+										<div class="preview">順序リスト</div>
+										<div class="view">
+											<ol contenteditable="true">
+												<li>Lorem ipsum dolor sit amet</li>
+												<li>Consectetur adipiscing elit</li>
+												<li>Integer molestie lorem at massa</li>
+												<li>Facilisis in pretium nisl aliquet</li>
+												<li>Nulla volutpat aliquam velit</li>
+												<li>Faucibus porta lacus fringilla vel</li>
+												<li>Aenean sit amet erat nunc</li>
+												<li>Eget porttitor lorem</li>
+											</ol>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="dl-horizontal">縦对齐</a>
+									</span>
+										<div class="preview">詳細説明</div>
+										<div class="view">
+											<dl contenteditable="true">
+												<dt>Description lists</dt>
+												<dd>A description list is perfect for defining terms.</dd>
+												<dt>Euismod</dt>
+												<dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+												<dd>Donec id elit non mi porta gravida at eget metus.</dd>
+												<dt>Malesuada porta</dt>
+												<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+												<dt>Felis euismod semper eget lacinia</dt>
+												<dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="table-striped">条纹</a></li>
+											<li class=""><a href="#" rel="table-bordered">边框</a></li>
+										</ul>
+										</span> <a class="btn btn-xs btn-default" href="#" rel="table-hover">鼠标指示</a>
+										<a class="btn btn-xs btn-default" href="#" rel="table-condensed">紧凑</a>
+										</span>
+										<div class="preview">テーブル</div>
+										<div class="view">
+											<table class="table" contenteditable="true">
+												<thead>
+													<tr>
+														<th>項番</th>
+														<th>製品</th>
+														<th>交付時間</th>
+														<th>状態</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>TB - Monthly</td>
+														<td>01/04/2012</td>
+														<td>Default</td>
+													</tr>
+													<tr class="success">
+														<td>1</td>
+														<td>TB - Monthly</td>
+														<td>01/04/2012</td>
+														<td>Approved</td>
+													</tr>
+													<tr class="error">
+														<td>2</td>
+														<td>TB - Monthly</td>
+														<td>02/04/2012</td>
+														<td>Declined</td>
+													</tr>
+													<tr class="warning">
+														<td>3</td>
+														<td>TB - Monthly</td>
+														<td>03/04/2012</td>
+														<td>Pending</td>
+													</tr>
+													<tr class="info">
+														<td>4</td>
+														<td>TB - Monthly</td>
+														<td>04/04/2012</td>
+														<td>Call in to confirm</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="form-inline">埋め込み</a>
+									</span>
+										<div class="preview">提交フォーム</div>
+										<div class="view">
+											<form role="form">
+												<div class="form-group">
+													<label for="exampleInputEmail1">Email address</label>
+													<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+												</div>
+												<div class="form-group">
+													<label for="exampleInputPassword1">Password</label>
+													<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+												</div>
+												<div class="form-group">
+													<label for="exampleInputFile">File input</label>
+													<input type="file" id="exampleInputFile">
+													<p class="help-block">Example block-level help text here.
+													</p>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox">Check me out
+													</label>
+												</div>
+												<button type="submit" class="btn btn-default">Submit</button>
+											</form>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"></span>
+										<div class="preview">縦方向フォーム</div>
+										<div class="view">
+											<form class="form-horizontal" role="form">
+												<div class="form-group">
+													<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+													<div class="col-sm-10">
+														<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+													<div class="col-sm-10">
+														<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-offset-2 col-sm-10">
+														<div class="checkbox">
+															<label>
+																<input type="checkbox">Remember me
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-sm-offset-2 col-sm-10">
+														<button type="submit" class="btn btn-default">Sign in
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="btn-primary">原生</a></li>
+											<li class=""><a href="#" rel="btn-info">情報</a></li>
+											<li class=""><a href="#" rel="btn-success">成功</a></li>
+											<li class=""><a href="#" rel="btn-warning">注意</a></li>
+											<li class=""><a href="#" rel="btn-danger">危険</a></li>
+											<li class=""><a href="#" rel="btn-inverse">反転</a></li>
+											<li class=""><a href="#" rel="btn-link">リンク</a></li>
+										</ul>
+										</span> <span class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> 尺寸 <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class=""><a href="#" rel="btn-lg">大きいきい</a></li>
+											<li class=""><a href="#" rel="btn-default">デフォルト</a></li>
+											<li class=""><a href="#" rel="btn-sm">小さいさい</a></li>
+											<li class=""><a href="#" rel="btn-xs">マイクロ</a></li>
+										</ul>
+										</span> <a class="btn btn-xs btn-default" href="#" rel="btn-block">全段</a>
+										<a class="btn btn-xs btn-default" href="#" rel="active">活動</a>
+										<a class="btn btn-xs btn-default" href="#" rel="disabled">禁止</a>
+										</span>
+										<div class="preview">ボタン</div>
+										<div class="view">
+											<button type="button" class="btn btn-default" contenteditable="true">ボタン</button>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="img-rounded">フィレット</a></li>
+											<li class=""><a href="#" rel="img-circle">丸</a></li>
+											<li class=""><a href="#" rel="img-thumbnail">フォトフレーム</a>
+											</li>
+										</ul>
+										</span>
+										</span>
+										<div class="preview">イメージ</div>
+										<div class="view">
+											<img alt="140x140" src="../../js/common/v3/images/default3.jpg">
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="nav nav-list accordion-group">
+								<li class="nav-header"><i class="glyphicon glyphicon-plus"></i>ツールグループ
+									<!--<div class="pull-right popover-info">
+									<i class="glyphicon glyphicon-question-sign "></i>
+									<div class="popover fade right">
+										<div class="arrow"></div>
+										<h3 class="popover-title">ヘルプ</h3>
+										<div class="popover-content">
+											将组件元素拖放入你需要放入的栅格列中。之后，你可以设置该组件的スタイル。</div>
+									</div>
+								</div>-->
+								</li>
+								<li class="boxes" id="elmComponents">
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> サイズ <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="btn-group-lg">大きい</a></li>
+											<li class=""><a href="#" rel="btn-group-md">中</a></li>
+											<li class=""><a href="#" rel="btn-group-sm">小さい</a></li>
+											<li class=""><a href="#" rel="btn-group-xs">マイクロ</a></li>
+										</ul>
+										</span> <a class="btn btn-xs btn-default" href="#" rel="btn-group-vertical">縦</a>
+										</span>
+										<div class="preview">ボタン</div>
+										<div class="view">
+											<div class="btn-group">
+												<button class="btn btn-default" type="button">
+													<i class="glyphicon glyphicon-align-left"></i> 左
+												</button>
+												<button class="btn btn-default" type="button">
+													<i class="glyphicon glyphicon-align-center"></i>センター
+												</button>
+												<button class="btn btn-default" type="button">
+													<i class="glyphicon glyphicon-align-right"></i>右
+												</button>
+												<button class="btn btn-default" type="button">
+													<i class="glyphicon glyphicon-align-justify"></i>全
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="dropup">朝向</a>
+									</span>
+										<div class="preview">プルダウン·メニュー</div>
+										<div class="view">
+											<div class="btn-group">
+												<button class="btn btn-default" contenteditable="true">Action</button>
+												<button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+													<span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu" contenteditable="true">
+													<li><a href="#">操作</a></li>
+													<li class="disabled"><a href="#">別の操作</a></li>
+													<li class="divider"></li>
+													<li><a href="#">其它</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class=""><a href="#" rel="nav-tabs">デフォルト</a></li>
+											<li class=""><a href="#" rel="nav-pills">线框</a></li>
+										</ul>
+										</span> <a class="btn btn-xs btn-default" href="#" rel="nav-stacked">切り替えフォーマット</a>
+										</span>
+										<div class="preview">导航</div>
+										<div class="view">
+											<ul class="nav nav-tabs" contenteditable="true">
+												<li class="active"><a href="#">首页</a></li>
+												<li><a href="#">簡介</a></li>
+												<li class="disabled"><a href="#">情報</a></li>
+												<li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle"> プルダウン <b
+													class="caret"></b>
+											</a>
+													<ul class="dropdown-menu">
+														<li><a href="#">操作</a></li>
+														<li><a href="#">設置栏目</a></li>
+														<li><a href="#">設置</a></li>
+														<li class="divider"></li>
+														<li><a href="#">分割線</a></li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">経路导航</div>
+										<div class="view">
+											<ul class="breadcrumb">
+												<li><a href="#" contenteditable="true">Home</a></li>
+												<li><a href="#" contenteditable="true">Library</a></li>
+												<li class="active" contenteditable="true">Data</li>
+											</ul>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> 尺寸 <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class=""><a href="#" rel="pagination-lg">大きい</a></li>
+											<li class="active"><a href="#" rel="">众</a></li>
+											<li class=""><a href="#" rel="pagination-sm">小さい</a></li>
+										</ul>
+										</span>
+										</span>
+										<div class="preview">分页</div>
+										<div class="view">
+											<ul class="pagination" contenteditable="true">
+												<li><a href="#">Prev</a></li>
+												<li><a href="#">1</a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#">Next</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class=""><a href="#" rel="label-default">Default</a>
+											</li>
+											<li class=""><a href="#" rel="label-primary">Primary</a>
+											</li>
+											<li class=""><a href="#" rel="label-success">Success</a>
+											</li>
+											<li class=""><a href="#" rel="label-info">Info</a></li>
+											<li class=""><a href="#" rel="label-warning">Warning</a>
+											</li>
+											<li class=""><a href="#" rel="label-danger">Danger</a>
+											</li>
+										</ul>
+										</span>
+										</span>
+										<div class="preview">ラベル</div>
+										<div class="view">
+											<span class="label label-default" contenteditable="true">ラベル</span>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"></span>
+										<div class="preview">バッジ</div>
+										<div class="view">
+											<ul class="nav nav-pills" contenteditable="true">
+												<li class="active">
+													<a href="#"> <span class="badge pull-right">42</span> Home
+													</a>
+												</li>
+												<li>
+													<a href="#"> <span class="badge pull-right">16</span> More
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="well">Well</a>
+									</span>
+										<div class="preview">大きい幕</div>
+										<div class="view">
+											<div class="jumbotron" contenteditable="true">
+												<h1>Hello, world!</h1>
+												<p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+												<p>
+													<a class="btn btn-primary btn-large" href="#">Learn more</a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">页头</div>
+										<div class="view">
+											<div class="page-header">
+												<h1 contenteditable="true">
+												Example page header <small>Subtext for header</small>
+											</h1>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">テキスト</div>
+										<div class="view">
+											<h2 contenteditable="true">Heading</h2>
+											<p contenteditable="true">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+											<p>
+												<a class="btn" href="#" contenteditable="true">View
+												details &raquo;</a>
+											</p>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">缩略图</div>
+										<div class="view">
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="thumbnail">
+														<img alt="300x200" src="../../js/common/v3/images/default4.jpg">
+														<div class="caption" contenteditable="true">
+															<h3>Thumbnail label</h3>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+															</p>
+															<p>
+																<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+															</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="thumbnail">
+														<img alt="300x200" src="../../js/common/v3/images/default5.jpg">
+														<div class="caption" contenteditable="true">
+															<h3>Thumbnail label</h3>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+															</p>
+															<p>
+																<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+															</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="thumbnail">
+														<img alt="300x200" src="../../js/common/v3/images/default6.jpg">
+														<div class="caption" contenteditable="true">
+															<h3>Thumbnail label</h3>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+															</p>
+															<p>
+																<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="progress-striped">条纹</a>
+										<a class="btn btn-xs btn-default" href="#" rel="active">アニメ</a>
+									</span>
+										<div class="preview">進捗条</div>
+										<div class="view">
+											<div class="progress">
+												<div class="progress-bar progress-success" style="width: 60%;"></div>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <a
+										class="btn btn-xs btn-default" href="#" rel="well">埋め込み</a>
+									</span>
+										<div class="preview">メディア</div>
+										<div class="view">
+											<div class="media">
+												<a href="#" class="pull-left"> <img src="../../js/common/v3/images/default7.jpg" class="media-object"></a>
+												<div class="media-body" contenteditable="true">
+													<h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+													<div class="media">
+														<a href="#" class="pull-left"> <img src="../../js/common/v3/images/default8.jpg" class="media-object"></a>
+														<div class="media-body" contenteditable="true">
+															<h4 class="media-heading">Nested media heading</h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"></span>
+										<div class="preview">リストグループ</div>
+										<div class="view">
+											<div class="list-group" contenteditable="true">
+												<a href="#" class="list-group-item active">Home</a>
+												<div class="list-group-item">List header</div>
+												<div class="list-group-item">
+													<h4 class="list-group-item-heading">List group item
+													heading</h4>
+													<p class="list-group-item-text">...</p>
+												</div>
+												<div class="list-group-item">
+													<span class="badge">14</span> Help
+												</div>
+												<a class="list-group-item active"> <span class="badge">14</span> Help
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class=""><a href="#" rel="panel-default">Default</a>
+											</li>
+											<li class=""><a href="#" rel="panel-primary">Primary</a>
+											</li>
+											<li class=""><a href="#" rel="panel-success">Success</a>
+											</li>
+											<li class=""><a href="#" rel="panel-info">Info</a></li>
+											<li class=""><a href="#" rel="panel-warning">Warning</a>
+											</li>
+											<li class=""><a href="#" rel="panel-danger">Danger</a>
+											</li>
+										</ul>
+										</span>
+										</span>
+										<div class="preview">パネル</div>
+										<div class="view">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<h3 class="panel-title" contenteditable="true">Panel
+													title</h3>
+												</div>
+												<div class="panel-body" contenteditable="true">Panel content
+												</div>
+												<div class="panel-footer" contenteditable="true">Panel footer
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<ul class="nav nav-list accordion-group">
+								<li class="nav-header"><i class="glyphicon glyphicon-plus"></i> JavaScript
+									<!--<div class="pull-right popover-info">
+									<i class="glyphicon glyphicon-question-sign "></i>
+									<div class="popover fade right">
+										<div class="arrow"></div>
+										<h3 class="popover-title">ヘルプ</h3>
+										<div class="popover-content">
+											将组件元素拖放入你需要放入的栅格列中。之后，你可以设置该javascript组件的スタイル。</div>
+									</div>
+								</div>-->
+								</li>
+								<li class="boxes mute" id="elmJS">
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">モード</div>
+										<div class="view">
+											<a id="myModalLink" href="#myModalContainer" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+											<div class="modal fade" id="myModalContainer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title" id="myModalLabel" contenteditable="true">标题</h4>
+														</div>
+														<div class="modal-body" contenteditable="true">内容...</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal" contenteditable="true">关闭</button>
+															<button type="button" class="btn btn-primary" contenteditable="true">保存</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> 位置 <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="active"><a href="#" rel="">デフォルト</a></li>
+											<li class=""><a href="#" rel="navbar-static-top">头部</a>
+											</li>
+											<li class=""><a href="#" rel="navbar-fixed-top">固定在头部</a>
+											</li>
+											<li class=""><a href="#" rel="navbar-fixed-bottom">固定在底部</a>
+											</li>
+										</ul>
+										</span> <a class="btn btn-xs btn-default" href="#" rel="navbar-inverse">反転</a>
+										</span>
+										<div class="preview">ナビゲーションバー</div>
+										<div class="view">
+											<nav class="navbar navbar-default" role="navigation">
+												<div class="navbar-header">
+													<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+														<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+													</button>
+													<a class="navbar-brand" href="#">Brand</a>
+												</div>
+												<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+													<ul class="nav navbar-nav">
+														<li class="active"><a href="#">Link</a></li>
+														<li><a href="#">Link</a></li>
+														<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+															Dropdown <b class="caret"></b>
+													</a>
+															<ul class="dropdown-menu">
+																<li><a href="#">Action</a></li>
+																<li><a href="#">Another action</a></li>
+																<li><a href="#">Something else here</a></li>
+																<li class="divider"></li>
+																<li><a href="#">Separated link</a></li>
+																<li class="divider"></li>
+																<li><a href="#">One more separated link</a></li>
+															</ul>
+														</li>
+													</ul>
+													<form class="navbar-form navbar-left" role="search">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Search">
+														</div>
+														<button type="submit" class="btn btn-default">Submit</button>
+													</form>
+													<ul class="nav navbar-nav navbar-right">
+														<li><a href="#">Link</a></li>
+														<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+															Dropdown <b class="caret"></b>
+													</a>
+															<ul class="dropdown-menu">
+																<li><a href="#">Action</a></li>
+																<li><a href="#">Another action</a></li>
+																<li><a href="#">Something else here</a></li>
+																<li class="divider"></li>
+																<li><a href="#">Separated link</a></li>
+															</ul>
+														</li>
+													</ul>
+												</div>
+											</nav>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"></span>
+										<div class="preview">オプション</div>
+										<div class="view">
+											<div class="tabbable" id="myTabs">
+												<ul class="nav nav-tabs">
+													<li class="active"><a href="#tab1" data-toggle="tab" contenteditable="true">Section 1</a></li>
+													<li><a href="#tab2" data-toggle="tab" contenteditable="true">Section 2</a></li>
+												</ul>
+												<div class="tab-content">
+													<div class="tab-pane active" id="tab1">
+														<p contenteditable="true">I'm in Section 1.</p>
+													</div>
+													<div class="tab-pane" id="tab2">
+														<p contenteditable="true">Howdy, I'm in Section 2.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span> <span class="configuration"> <span
+										class="btn-group btn-group-xs"> <a
+											class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown" href="#"> スタイル <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+											<li class=""><a href="#" rel="alert-success">Success</a>
+											</li>
+											<li class=""><a href="#" rel="alert-info">Info</a></li>
+											<li class=""><a href="#" rel="alert-warning">Warning</a>
+											</li>
+											<li class=""><a href="#" rel="alert-danger">Danger</a>
+											</li>
+										</ul>
+										</span>
+										</span>
+										<div class="preview">ヒント框</div>
+										<div class="view">
+											<div class="alert alert-success alert-dismissable" contenteditable="true">
+												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+												<h4>注意!</h4>
+												<strong>Warning!</strong> Best check yo self, you're not looking too good. <a href="#" class="alert-link">alert
+												link</a>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">アコーディオンの切り替え</div>
+										<div class="view">
+											<div class="panel-group" id="myAccordion">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne" contenteditable="true">Collapsible Group Item #1</a>
+													</div>
+													<div id="collapseOne" class="panel-collapse collapse in">
+														<div class="panel-body" contenteditable="true">Anim pariatur cliche...</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<a class="panel-title" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo" contenteditable="true">Collapsible Group Item #2</a>
+													</div>
+													<div id="collapseTwo" class="panel-collapse collapse">
+														<div class="panel-body" contenteditable="true">Anim pariatur cliche...</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="box box-element">
+										<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+										</a> <span class="drag label label-default"> <i
+										class="glyphicon glyphicon-move"></i> 拖动
+									</span>
+										<div class="preview">スライド</div>
+										<div class="view">
+											<div class="carousel slide" id="myCarousel">
+												<ol class="carousel-indicators">
+													<li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+													<li data-slide-to="1" data-target="#myCarousel" class=""></li>
+													<li data-slide-to="2" data-target="#myCarousel" class=""></li>
+												</ol>
+												<div class="carousel-inner">
+													<div class="item active">
+														<img alt="" src="../../js/common/v3/images/default.jpg">
+														<div class="carousel-caption">
+															<h4>First Thumbnail label</h4>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+															</p>
+														</div>
+													</div>
+													<div class="item">
+														<img alt="" src="../../js/common/v3/images/default1.jpg">
+														<div class="carousel-caption">
+															<h4>Second Thumbnail label</h4>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+															</p>
+														</div>
+													</div>
+													<div class="item">
+														<img alt="" src="../../js/common/v3/images/default2.jpg">
+														<div class="carousel-caption">
+															<h4>Third Thumbnail label</h4>
+															<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+															</p>
+														</div>
+													</div>
+												</div>
+												<a class="left carousel-control" href="#myCarousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span>
+												</a>
+												<a class="right carousel-control" href="#myCarousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div position="center">
+					<div class="l-layout-header">
+						<div class="l-layout-header-inner toolbar toolbar-right" id="toolbar-right2"></div>
+					</div>
+					<div class="panel-content">
+						<div class="demo">
+							<div class="lyrow">
+								<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+								</a> <span class="drag label label-default"> <i
+								class="glyphicon glyphicon-move"></i> 拖动
+							</span>
+								<div class="preview">9 3</div>
+								<div class="view">
+									<div class="row clearfix">
+										<div class="col-xs-12 column ui-sortable">
+											<div class="box box-element">
+												<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+												</a> <span class="drag label label-default"> <i
+												class="glyphicon glyphicon-move"></i> 拖动
+											</span> <span class="configuration"> <span
+												class="btn-group btn-group-xs"> <a
+													class="btn btn-default dropdown-toggle"
+													data-toggle="dropdown" href="#"> 位置 <span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu">
+													<li class="active"><a href="#" rel="">デフォルト</a></li>
+													<li class=""><a href="#" rel="navbar-static-top">头部</a>
+													</li>
+													<li class=""><a href="#" rel="navbar-fixed-top">固定在头部</a>
+													</li>
+													<li class=""><a href="#" rel="navbar-fixed-bottom">固定在底部</a>
+													</li>
+												</ul>
+												</span> <a class="btn btn-xs btn-default" href="#" rel="navbar-inverse">反転</a>
+												</span>
+												<div class="preview">导航栏</div>
+												<div class="view">
+													<nav class="navbar navbar-default" role="navigation">
+														<div class="navbar-header">
+															<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+																<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+																<span class="icon-bar"></span>
+															</button>
+															<a class="navbar-brand" href="#">Brand</a>
+														</div>
+														<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+															<ul class="nav navbar-nav">
+																<li class="active"><a href="#">Link</a></li>
+																<li><a href="#">Link</a></li>
+																<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+																	Dropdown <b class="caret"></b>
+															</a>
+																	<ul class="dropdown-menu">
+																		<li><a href="#">Action</a></li>
+																		<li><a href="#">Another action</a></li>
+																		<li><a href="#">Something else here</a></li>
+																		<li class="divider"></li>
+																		<li><a href="#">Separated link</a></li>
+																		<li class="divider"></li>
+																		<li><a href="#">One more separated link</a></li>
+																	</ul>
+																</li>
+															</ul>
+															<form class="navbar-form navbar-left" role="search">
+																<div class="form-group">
+																	<input type="text" class="form-control" placeholder="Search">
+																</div>
+																<button type="submit" class="btn btn-default">Submit</button>
+															</form>
+															<ul class="nav navbar-nav navbar-right">
+																<li><a href="#">Link</a></li>
+																<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+																	Dropdown <b class="caret"></b>
+															</a>
+																	<ul class="dropdown-menu">
+																		<li><a href="#">Action</a></li>
+																		<li><a href="#">Another action</a></li>
+																		<li><a href="#">Something else here</a></li>
+																		<li class="divider"></li>
+																		<li><a href="#">Separated link</a></li>
+																	</ul>
+																</li>
+															</ul>
+														</div>
+													</nav>
+												</div>
+											</div>
+											<div class="box box-element">
+												<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i>削除
+												</a> <span class="drag label label-default"> <i
+												class="glyphicon glyphicon-move"></i> 拖动
+											</span> <span class="configuration"> <a
+												class="btn btn-xs btn-default" href="#" rel="well">埋め込み</a>
+											</span>
+												<div class="preview">Jumbotron</div>
+												<div class="view">
+													<div class="jumbotron" contenteditable="true">
+														<h1>Hello, world!</h1>
+														<p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+														<p>
+															<a class="btn btn-primary btn-large" href="#">Learn
+															more</a>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lyrow" style="display: block;">
+								<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+								</a> <span class="drag label label-default"> <i
+								class="glyphicon glyphicon-move"></i> 拖动
+							</span>
+								<div class="preview">4 4 4</div>
+								<div class="view">
+									<div class="row clearfix">
+										<div class="col-xs-4 column ui-sortable" style="">
+											<div class="box box-element">
+												<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+												</a> <span class="drag label label-default"> <i
+												class="glyphicon glyphicon-move"></i> 拖动
+											</span>
+												<div class="preview">Text</div>
+												<div class="view">
+													<h2 contenteditable="true">Heading</h2>
+													<p contenteditable="true">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+													<p>
+														<a class="btn" href="#" contenteditable="true">View
+														details &raquo;</a>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-4 column ui-sortable" style="">
+											<div class="box box-element">
+												<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 削除
+												</a> <span class="drag label label-default"> <i
+												class="glyphicon glyphicon-move"></i> 拖动
+											</span>
+												<div class="preview">Text</div>
+												<div class="view">
+													<h2 contenteditable="true">Heading</h2>
+													<p contenteditable="true">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+													<p>
+														<a class="btn" href="#" contenteditable="true">View
+														details &raquo;</a>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-4 column ui-sortable" style="">
+											<div class="box box-element">
+												<a href="#close" class="remove label label-danger"> <i class="glyphicon glyphicon-remove"></i> 拖动
+												</a> <span class="drag label label-default"> <i
+												class="glyphicon glyphicon-move"></i> 拖动
+											</span>
+												<div class="preview">Text</div>
+												<div class="view">
+													<h2 contenteditable="true">Heading</h2>
+													<p contenteditable="true">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+													<p>
+														<a class="btn" href="#" contenteditable="true">View
+														details &raquo;</a>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<nav class="navbar navbar-fixed-bottom" role="navigation" style="text-align: center; background-color: #444">
+			<p class="text-nowrap">
+				<b style="color: #FFF;">Copyright © SDP CORPORATION</b>
+			</p>
+		</nav>
+		<!--[if lt IE 9]>
+	<script src="../../js/common/v3/js/html5shiv.min.js"></script>
+	<![endif]-->
+
+		<script type="text/javascript" src="../../js/common/v3/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/common/v3/jqueryui/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../../js/common/v3/jqueryui/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript" src="../../js/common/v3/jquery.htmlClean.js"></script>
+		<script type="text/javascript" src="../../js/common/v3/scripts.min.js"></script>
+		<script src="../../js/common/bootstrap-3.3.7/js/bootstrap.js "></script>
+		<script src="../../js/common/sdp2.js"></script>
+		<script src="../../js/common/ligerUI-1.3.3/ligerUI/js/core/base.js" type="text/javascript"></script>
+		<script src="../../js/common/ligerUI-1.3.3/ligerUI/js/plugins/ligerLayout.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../../js/common/ligerUI-1.3.3/ligerUI/js/plugins/ligerToolBar.js"></script>
+		<script src="../../js/common/sdp2.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				//左中右布局
+				$("#panel").ligerLayout({
+					leftWidth: 250,
+					heightDiff: -37
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			function saveLayout() {
+					return;
+					$.ajax({
+						type: "POST",
+						url: "/build_v3/saveLayout",
+						data: {
+							'layout-v3': $('.demo').html()
+						},
+						success: function(data) {
+							//updateButtonsVisibility();
+						}
+					});
+				}
+				//下载代码
+
+			function downloadLayout() {
+				$.ajax({
+					type: "POST",
+					url: "/build_v3/downloadLayout",
+					data: {
+						'layout-v3': $('#download-layout').html()
+					},
+					success: function(data) {
+						window.location.href = '/build_v3/download';
+					}
+				});
+			}
+
+			function downloadHtmlLayout() {
+				$.ajax({
+					type: "POST",
+					url: "/build_v3/downloadLayout",
+					data: {
+						'layout-v3': $('#download-layout').html()
+					},
+					success: function(data) {
+						window.location.href = '/build_v3/downloadHtml';
+					}
+				});
+			}
+
+			function undoLayout() {
+				$.ajax({
+					type: "POST",
+					url: "/build_v3/getPreviousLayout",
+					data: {},
+					success: function(data) {
+						undoOperation(data);
+					}
+				});
+			}
+
+			function redoLayout() {
+				$.ajax({
+					type: "POST",
+					url: "/build_v3/getPreviousLayout",
+					data: {},
+					success: function(data) {
+						redoOperation(data);
+					}
+				});
+			}
+			$(document).on('hidden.bs.modal', function(e) {
+				$(e.target).removeData('bs.modal');
+			});
+			$('body').on('click', '#continue-share-non-logged', function() {
+				$('#share-not-logged').hide();
+				$('#share-logged').removeClass('hide');
+				$('#share-logged').show();
+			});
+			$('body').on('click', '#continue-download-non-logged', function() {
+				$('#download-not-logged').hide();
+				$('#download').removeClass('hide');
+				$('#download').show();
+				$('#downloadhtml').removeClass('hide');
+				$('#downloadhtml').show();
+				$('#download-logged').removeClass('hide');
+				$('#download-logged').show();
+			});
+		</script>
+		<div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">下载</h4>
+					</div>
+					<div class="modal-body">
+						<div id="download-logged" class="">
+							<div class="alert alert-info">
+								已在下面生成干净的HTML, 可以复制粘贴代码到你的body内
+								<br /> 请使用bootstrap3.0.1,可在这里下载
+								<a target="_blank" href="http://www.bootcdn.cn/bootstrap/">http://www.bootcdn.cn/bootstrap</a>
+							</div>
+							<p>
+								<textarea></textarea>
+							</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				 //downloadLayoutSrc();
+				$('#modal-download-sign-in-button')
+					.click(
+						function(event) {
+							$('.help-inline').hide();
+							var form = $('#boxDownloadLoginForm');
+							var ajaxLoginUrl = '/login/ajaxLogin';
+							jQuery
+								.ajax({
+									type: "post",
+									dataType: "json",
+									url: ajaxLoginUrl,
+									data: form.serialize(),
+									success: function(response) {
+										if (response.success) {
+											$('#download-not-logged')
+												.hide();
+											$('#download').removeClass(
+												'hide');
+											$('#download').show();
+											$('#downloadhtml')
+												.removeClass('hide');
+											$('#downloadhtml').show();
+											$('#download-logged')
+												.removeClass('hide');
+											$('#download-logged')
+												.show();
+										} else {
+											if (response.errors && response.errors.length > 0) {
+												$
+													.each(
+														response.errors,
+														function(
+															i,
+															item) {
+															$(
+																	'#' + item.field + '-download-error')
+																.html(
+																	item.error);
+															$(
+																	'#' + item.field + '-download-error')
+																.show();
+														});
+											}
+										}
+									},
+									error: function(response) {}
+								});
+							return false;
+						});
+			</script>
+		</div>
+	</body>
+
+</html>

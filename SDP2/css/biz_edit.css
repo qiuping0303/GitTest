@@ -1,0 +1,111 @@
+.my-head {
+	height: 100%;
+}
+.user-position {
+	height: 30px;
+	background-color: #E0ECFF;
+	padding-left: 0;
+	padding-right: 0;
+}
+.position-conment {
+	height: 30px;
+	background-color: #E0ECFF;
+	padding: 5px;
+	color: #428BCA;
+}
+.my-label {
+	padding: 5px;
+	background-color: #4F81BD;
+}
+.my-input {
+	height: 100%;
+	border: 1px solid #E0ECFF ;
+}
+.one-lan {
+	height: 740px;
+	background-color: #FFFFFF;
+	border: 1px solid #BDD3F0;
+	padding-left: 0;
+	padding-right: 0;
+	float: left;
+}
+.two-lan {
+	height: 740px;
+	background-color: #FFFFFF;
+	border: 1px solid #BDD3F0;
+	float: left;
+}
+.three-lan {
+	height: 740px;
+	background-color: #FFFFFF;
+	padding-left: 0;
+	padding-right: 0;
+	border: 1px solid #BDD3F0;
+	float: left;
+}
+.tool-title {
+	background-color: #F5F5F5;
+	height: 30px;
+	padding: 5px;
+	color: #5778AF;
+}
+.table {
+	margin-bottom: 0;
+}
+.tab-content {
+	margin-top: 3px;
+}
+.input-bean {
+	border: 5px solid #BDD3F0;
+	height: 740px;
+	background-color: #FFFFFF;
+}
+.table-one-column {
+	background-color: #F5F5F5;
+}
+#dier-row {
+	background-color: #F5F5F5;
+}
+
+
+
+/* 髱｢譚ｿ髫占酪謾ｶ郛ｩ邂ｭ螟ｴ蠑乗�ｷ */
+.arrow-circle{
+	width: 18px;
+	height: 18px;
+	border: 2px solid #5778af;
+	border-radius: 50%;
+	color: #5778af;
+}
+.arrow-icon{
+	font-size: 10px;
+	top: -2px;
+	left: 1px;
+}
+/* 蜿ｯ髫占酪逧�髱｢譚ｿ螳ｽ蠎ｦ蠑乗�ｷ */
+.panel-left{
+	width: 20%;
+}
+.panel-right{
+	width: 20%;
+}
+.panel-middle-small{
+	width: 60%;
+}
+.panel-middle-mid{
+	width: 78.6%;
+}
+.panel-middle-lar{
+	width: 96.8%;
+}
+/* 髫占酪髱｢譚ｿ蠑乗�ｷ */
+.collapsed-panel{
+	width:25px;
+	margin-top: 5px;
+}
+.collapsed-panel-left{
+	float: left;
+}
+.collapsed-panel-right{
+	float: right;
+}

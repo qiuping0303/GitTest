@@ -1,0 +1,42 @@
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	font-family: "Verdana", "Tahoma", "Lucida Grande", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+	background: no-repeat center center fixed;
+	filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='images/loginbg_10.jpg', sizingMethod='scale');
+	background-size: cover;
+}
+.main_box {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	margin: -200px 0 0 -240px;
+	width: 480px;
+	height: 400px;
+	min-width: 320px;
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 1px 5px 8px #888888;
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#7fffffff, endColorstr=#7fffffff);
+	border-radius: 6px;
+}
+.main_box > div {
+	border-radius: 6px 6px 0px 0px;
+}
+.div_login {
+	height: 100px;
+	background-color: #428BCA;
+}
+.p_login {
+	padding: 40px 60px;
+	color: white;
+	font-size: 20px
+}
+.div_form {
+	padding: 15px 55px;
+}
+.text-center {
+	padding-top: 30px;
+}
